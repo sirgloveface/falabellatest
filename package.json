@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --testTimeout=10000 --coverage --coverageDirectory=output/coverage/jest --detectOpenHandles",
     "start": "export NODE_ENV=local && nodemon --exec babel-node --inspect src/index.js",
     "start-dev": "export NODE_ENV=develop && nodemon --exec babel-node src/index.js",
     "debug": "export NODE_ENV=local && nodemon --exec babel-node --inspect src/index.js"
@@ -22,10 +22,24 @@
     "sqlite3": "^4.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.0",
+    "@babel/core": "^7.7.2",
     "@babel/node": "^7.6.1",
     "@babel/plugin-transform-runtime": "^7.6.0",
-    "@babel/preset-env": "^7.6.0",
-    "nodemon": "^1.19.2"
+    "@babel/preset-env": "^7.7.1",
+    "@babel/runtime": "^7.7.2",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.2",
+    "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "coverageReporters": [
+      "text",
+      "html"
+    ]
   }
 }
