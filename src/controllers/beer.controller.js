@@ -15,7 +15,6 @@ class Beer {
       const eventRepo = new FalabelaRepository(this._dao)
         console.log(`${this._logger.green("[ getAll controller ]")}`)
         eventRepo.getAll().then((data) => {
-          console.log(data)
           return res.send(data)
         }).catch((e) => {
           return res.status(400).send()
@@ -56,9 +55,13 @@ class Beer {
         let { Price, Currency } = data
         let currency = await this.checkCurrency(Currency)
         let { quotes } = currency
-        // Precio en Moneda Registrada
-        let Price_Total = req.query.quantity * Price * quotes[`USD${Currency}`]
-    
+        let mul = Currency === req.query.currency ? 1 : 
+                  ( quotes[`USD${req.query.currency}`] > 1 
+                  ? quotes[`USD${req.query.currency}`] 
+                  : 1.00 / quotes[`USD${req.query.currency}`] )
+         // Precio en Moneda Registrada
+        let Price_Total = (req.query.quantity * Price) * mul
+
         return res.send({ "BeerBox": { "Precio_Total": Price_Total }})
       })
    }
