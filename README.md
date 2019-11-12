@@ -2,10 +2,16 @@
 
 Proyecto de prueba para proceso de seleccion falabella
 
-## Usos de Aplicación de forma local
+## Usos de Aplicación de forma local en forma de desarrollo
 `
 npm i
-npm start-dev
+npm run start-dev
+`
+
+## Usos de Aplicación para correr test
+`
+npm i
+npm run test
 `
 
 ## Usos de Aplicación mediante docker-compose

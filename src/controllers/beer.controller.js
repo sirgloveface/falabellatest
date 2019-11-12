@@ -55,13 +55,9 @@ class Beer {
         let { Price, Currency } = data
         let currency = await this.checkCurrency(Currency)
         let { quotes } = currency
-        let mul = Currency === req.query.currency ? 1 : 
-                  ( quotes[`USD${req.query.currency}`] > 1 
-                  ? quotes[`USD${req.query.currency}`] 
-                  : 1.00 / quotes[`USD${req.query.currency}`] )
          // Precio en Moneda Registrada
-        let Price_Total = (req.query.quantity * Price) * mul
-
+        let divisor = Currency == req.query.currency ? 1 : quotes[`USD${Currency}`]
+        let Price_Total = (req.query.quantity * Price) / divisor
         return res.send({ "BeerBox": { "Precio_Total": Price_Total }})
       })
    }
