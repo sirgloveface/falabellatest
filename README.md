@@ -10,12 +10,12 @@ npm run start-dev
 
 ## Usos de Aplicación para correr test
 `
-npm i
+npm i &&
 npm run test
 `
 
 ## Usos de Aplicación mediante docker-compose
 `
-cd falabellatest
+cd falabellatest &&
 docker-compose up --build
 `
