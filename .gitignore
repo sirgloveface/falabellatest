@@ -3,3 +3,4 @@ node_modules
 .directory
 package-lock.json
 .vscode/settings.json
+database.sqllite3
