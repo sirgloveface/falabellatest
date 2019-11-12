@@ -1,0 +1,10 @@
+version: '3'
+services:
+  falabella_service:
+    build: .
+    container_name: falabella_service
+    network_mode: "host"
+    restart: always
+    command: npm run start-dev
+    volumes:
+      -  /var/run/docker.sock:/tmp/docker.so
