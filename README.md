@@ -4,7 +4,7 @@ Proyecto de prueba para proceso de seleccion falabella
 
 ## Usos de Aplicación de forma local en forma de desarrollo
 `
-npm i
+npm i &&
 npm run start-dev
 `
 
